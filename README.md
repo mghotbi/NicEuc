@@ -1,10 +1,8 @@
 ---
 title: "NicEuc: Spatial Sampling"
-output: rmarkdown::html_vignette
+output: rmarkdown::Github
 ---
 `
-
-This vignette demonstrates the use of the NicEuc package on the built-in dataset synthetic_gps, designed to mimic the structure and complexity of EucFACE field layouts.
 
 # Key features:
 
