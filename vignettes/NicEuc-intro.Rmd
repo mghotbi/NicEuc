@@ -1,0 +1,140 @@
+---
+title: "NicEuc: Spatial Sampling"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{NicEuc: Spatial Sampling with Synthetic Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 10,
+  fig.height = 7
+)
+
+```
+
+This vignette demonstrates the use of the NicEuc package on the built-in dataset synthetic_gps, designed to mimic the structure and complexity of EucFACE field layouts.
+
+# Key features:
+
+Ring -> Plot -> Cell hierarchy
+
+Stratified sampling by photosynthetic pathway (C3 vs C4)
+
+Spatial separation using a minimum distance
+
+Dynamic visualizations and Moran's I for spatial autocorrelation
+
+
+ 
+```{r setup}
+
+  library(NicEuc)
+  library(sf)
+  library(spdep)
+  library(ggplot2)
+  library(leaflet)
+  library(dplyr)
+  library(tidyr)
+  library(utils)
+
+```
+
+
+The package includes synthetic_gps, a data frame with realistic spatial and taxonomic structure.
+
+```{r }
+
+data("synthetic_gps", package = "NicEuc")
+data("gps_ref", package = "NicEuc")
+
+head(synthetic_gps)
+
+library(dplyr)
+
+NicEuc::gps_ref %>%
+  count(Species, Photosynthetic_Pathway, sort = TRUE)
+
+
+```
+
+
+# Example
+
+```{r}
+
+# If you want to filter sampling by specific species:
+
+target_species <- c(
+  "centella_asiatica",
+  "commelina_cyanea",
+  "fimbristylis_dichotoma",
+  "axonopus_fissifolius"
+)
+
+
+```
+
+# Run generate_sampling_points()
+
+Sample 6 points per plot, with 0.4 m minimum spacing and stratification by C3/C4.
+
+```{r}
+
+set.seed(123)
+
+result <- suppressWarnings(generate_sampling_points(
+  gps_ref = synthetic_gps,
+  samples_per_plot = 6,
+  min_distance = 0.4,
+  target_species = target_species,
+  export_csv = FALSE
+))
+
+
+```
+
+# Explore Results
+
+```{r}
+head(result$samples)
+
+```
+
+# ggplot2 Layout
+
+```{r}
+
+print(result$plot)
+
+```
+
+# Interactive Leaflet Map
+
+```{r}
+
+result$map
+
+```
+
+# Moran's I Spatial Autocorrelation
+
+```{r}
+
+result$moran_test
+
+```
+
+# Notes
+Coordinates are reprojected from WGS84 to UTM Zone 56S (EPSG:32756).
+
+Each plot is sampled independently and visualized in a faceted layout.
+
+Sampling favors spatial separation while preserving C3/C4 balance.
+
+# Citation
+If you use NicEuc in publications or reports, please cite the package and the author Mitra Ghotbi.

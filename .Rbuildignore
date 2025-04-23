@@ -1,0 +1,9 @@
+^\.github$
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^README\.html$
+^README_files$
+^docs$
+^LICENSE\.md$
+^CRAN-SUBMISSION$

@@ -1,0 +1,6 @@
+pandoc: '3.2'
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  NicEuc-intro: NicEuc-intro.html
+last_built: 2025-04-23T05:53Z

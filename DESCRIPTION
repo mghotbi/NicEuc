@@ -1,0 +1,34 @@
+Package: NicEuc
+Title: Generate and Visualize Nested Sampling Points with Spatial Analysis
+Version: 0.0.0.9000
+Authors@R: 
+    person("Mitra", "Ghotbi", email = "mitra.ghotbi@gmail.com", 
+           role = c("aut", "cre"))
+Description: 
+    The NicEuc package facilitates the generation and visualization of
+    nested sampling points for ecological and spatial studies. It supports
+    hierarchical designs (Rings -> Plots -> Cells -> Samples) and integrates
+    spatial autocorrelation analysis using Moran's I. The package provides
+    tools for geospatial transformations, species assignment, and both
+    static (ggplot2) and interactive (Leaflet) visualizations.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: R (>= 4.0.0)
+Imports: 
+    dplyr,
+    ggplot2,
+    leaflet,
+    sf,
+    spdep,
+    grDevices,
+    utils
+Suggests: 
+    testthat (>= 3.0.0),
+    knitr,
+    tidyr,
+    rmarkdown
+VignetteBuilder: knitr
+Config/testthat/edition: 3
