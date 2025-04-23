@@ -7,3 +7,5 @@
 ^docs$
 ^LICENSE\.md$
 ^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^pkgdown$
