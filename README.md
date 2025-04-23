@@ -1,3 +1,26 @@
+# 📦 Installation
+
+# Install devtools if you haven't already
+
+```{r}
+install.packages("devtools")
+
+# Install NicEuc with vignettes
+devtools::install_github("mghotbi/NicEuc", build_vignettes = TRUE)
+
+```
+To explore the full vignette in your browser:
+
+```{r}
+
+# Open the vignette index in your browser
+browseVignettes("NicEuc")       # Opens browser-friendly vignette index
+#OR
+vignette("NicEuc-intro")        # View in RStudio or Viewer
+
+
+```
+
 
 
 # Key features:
