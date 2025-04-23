@@ -1,8 +1,4 @@
----
-title: "NicEuc: Spatial Sampling"
-output: rmarkdown::Github
----
-`
+
 
 # Key features:
 
