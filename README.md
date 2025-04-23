@@ -121,4 +121,4 @@ Each plot is sampled independently and visualized in a faceted layout.
 Sampling favors spatial separation while preserving C3/C4 balance.
 
 # Citation
-If you use NicEuc in publications or reports, please cite the package and the author Mitra Ghotbi.
+If you use NicEuc in publications or reports, please cite the package.
